@@ -1,0 +1,8 @@
+{
+  "name": "weasel-lsp",
+  "version": "0.0.1",
+  "dependencies": [
+    "plog",
+    "rapidjson"
+  ]
+}

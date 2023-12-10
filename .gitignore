@@ -1,0 +1,6 @@
+vcpkg_installed/
+build/
+temp/
+third-party/*
+
+!third-party/.gitkeep

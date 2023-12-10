@@ -1,6 +1,6 @@
 # Weasel LSP
 
-Originally this repo was inspired by https://github.com/otreblan/libclsp. Because I'm very lazy, Most of the struct are rewriten from libclsp repo. And then I change how it's work and how the API used.
+Originally this repo was inspired by https://github.com/otreblan/wlsp. Because I'm very lazy, Most of the struct are rewriten from wlsp repo. And then I change how it's work and how the API used.
 
 This project created with a hope can be used by other project and create reusable library might be become hard challenge.
 

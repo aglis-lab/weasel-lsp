@@ -1,0 +1,2 @@
+#cmakedefine SERVER_NAME "@SERVER_NAME@"
+#cmakedefine SERVER_VERSION "@SERVER_VERSION@"
