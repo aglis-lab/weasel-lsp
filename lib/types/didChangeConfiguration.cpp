@@ -1,5 +1,4 @@
 #include <wlsp/types/didChangeConfiguration.hpp>
-#include <wlsp/types/genericObject.hpp>
 
 namespace wlsp
 {

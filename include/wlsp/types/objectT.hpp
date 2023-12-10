@@ -3,8 +3,6 @@
 #include <wlsp/json/jsonValue.hpp>
 #include <wlsp/json/jsonWriter.hpp>
 
-#include <wlsp/server/jsonHandler.hpp>
-
 namespace wlsp
 {
 
@@ -17,7 +15,7 @@ namespace wlsp
 	{
 	protected:
 		/// This is like write() but without the object bounds.
-		virtual void partialWrite(JsonWriter &writer){};
+		virtual void partialWrite(JsonWriter &){};
 
 	public:
 		/// This is for writing the json

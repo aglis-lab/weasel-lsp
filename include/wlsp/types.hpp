@@ -29,7 +29,6 @@
 #include <wlsp/types/executeCommand.hpp>
 #include <wlsp/types/fileResourceChanges.hpp>
 #include <wlsp/types/foldingRange.hpp>
-#include <wlsp/types/genericObject.hpp>
 #include <wlsp/types/hover.hpp>
 #include <wlsp/types/implementation.hpp>
 #include <wlsp/types/initialize.hpp>

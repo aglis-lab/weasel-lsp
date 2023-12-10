@@ -1,41 +1,39 @@
+#include <wlsp/constant.hpp>
 #include <wlsp/types/notificationMessage.hpp>
 
 namespace wlsp
 {
-
 	using namespace std;
 
-	const String NotificationMessage::methodKey = "method";
-	const String NotificationMessage::paramsKey = "params";
-
-	NotificationMessage::NotificationMessage(Server &server,
-											 String method,
-											 optional<any> params) : MessageServer(server),
-																	 method(method),
-																	 params(params){};
-
-	NotificationMessage::NotificationMessage(Server &server) : MessageServer(server){};
+	NotificationMessage::NotificationMessage(String method, unique_ptr<ObjectT> params) : Message(JSON_RPC_VERSION), method(method)
+	{
+		this->params = std::move(params);
+	}
 
 	NotificationMessage::~NotificationMessage(){};
 
 	void NotificationMessage::partialWrite(JsonWriter &writer)
 	{
-		// Parent
-		MessageServer::partialWrite(writer);
+		// Json RPC
+		writer.Key(jsonrpcKey);
+		writer.String(jsonrpc);
 
 		// method
 		writer.Key(methodKey);
 		writer.String(method);
 
 		// params?
-		if (params.has_value())
+		if (params)
 		{
-			optional<Capability> capability = server.getCapability(method);
-			if (capability.has_value())
-			{
-				writer.Key(paramsKey);
-				capability->params.writer.value()(writer, *params);
-			}
+			// optional<Capability> capability = server.getCapability(method);
+			// if (capability.has_value())
+			// {
+			// 	writer.Key(paramsKey);
+
+			// 	// TODO: Capability Params
+			// 	// Find a way to cover this hole!
+			// 	capability->params.writer.value()(writer, *params);
+			// }
 		}
 	}
 }

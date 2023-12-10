@@ -1,10 +1,8 @@
 // TODO: CHECK IT
 #include <iostream>
 
+#include <wlsp/constant.hpp>
 #include <wlsp/types/responseMessage.hpp>
-
-#define JSON_RPC_KEY "jsonrpc"
-#define JSON_RPC_VERSION "2.0"
 
 namespace wlsp
 {
@@ -14,8 +12,8 @@ namespace wlsp
 
 	void ResponseMessage::partialWrite(JsonWriter &writer)
 	{
-		writer.Key(JSON_RPC_KEY);
-		writer.String(JSON_RPC_VERSION);
+		writer.Key(this->jsonrpcKey);
+		writer.String(this->jsonrpc);
 
 		writer.Key(this->idKey);
 		if (this->id.has_value())
@@ -41,7 +39,7 @@ namespace wlsp
 		writer.Key(errorKey);
 		if (error.has_value())
 		{
-			// writer.Object(*error);
+			writer.Object(*error);
 		}
 		else
 		{

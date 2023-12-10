@@ -1,5 +1,4 @@
 #include <wlsp/types/command.hpp>
-#include <wlsp/types/genericObject.hpp>
 
 namespace wlsp
 {

@@ -2,7 +2,6 @@
 
 #include <any>
 
-#include <wlsp/server/jsonHandler.hpp>
 #include <wlsp/json/jsonWriter.hpp>
 #include <wlsp/types/objectT.hpp>
 
@@ -16,31 +15,9 @@ namespace wlsp
 		/// The name of the method
 		String method;
 
-		struct JsonIO
-		{
-			/// A function to write the params or result.
-			optional<function<void(JsonWriter &, any &)>> writer;
+		Capability(String method) : method(method) {}
 
-			/// A function to fillInitializer the params or result.
-			optional<function<ValueSetter(JsonHandler &, optional<any> &)>> reader;
-
-			JsonIO(optional<function<void(JsonWriter &, any &)>> writer,
-				   optional<function<ValueSetter(JsonHandler &, optional<any> &)>> reader);
-
-			virtual ~JsonIO();
-		};
-
-		/// Functions to read/write the params of a RequestMessage or a
-		/// NotificationMessage.
-		JsonIO params;
-
-		/// Functions to read/write the result of a ResponseMessage.
-		/// Ommited for notifications.
-		optional<JsonIO> result;
-
-		Capability(String method, JsonIO params, optional<JsonIO> result);
-
-		virtual ~Capability();
+		virtual ~Capability() {}
 
 		// Default capabilities
 		const static Capability cancelRequest;
@@ -65,34 +42,34 @@ namespace wlsp
 		const static Capability workspaceSymbol;
 		const static Capability workspaceExecuteCommand;
 		const static Capability workspaceApplyEdit;
-		const static Capability textDocumentDidOpen;
-		const static Capability textDocumentDidChange;
-		const static Capability textDocumentWillSave;
-		const static Capability textDocumentWillSaveWaitUntil;
-		const static Capability textDocumentDidSave;
-		const static Capability textDocumentDidClose;
-		const static Capability textDocumentPublishDiagnostics;
-		const static Capability textDocumentCompletion;
-		const static Capability completionItemResolve;
-		const static Capability textDocumentHover;
-		const static Capability textDocumentSignatureHelp;
-		const static Capability textDocumentDeclaration;
-		const static Capability textDocumentDefinition;
-		const static Capability textDocumentTypeDefinition;
-		const static Capability textDocumentImplementation;
-		const static Capability textDocumentReferences;
-		const static Capability textDocumentDocumentHighlight;
-		const static Capability textDocumentDocumentSymbol;
-		const static Capability textDocumentCodeAction;
-		const static Capability textDocumentCodeLens;
-		const static Capability codeLensResolve;
-		const static Capability textDocumentDocumentLink;
-		const static Capability documentLinkResolve;
-		const static Capability textDocumentDocumentColor;
-		const static Capability textDocumentColorPresentation;
-		const static Capability textDocumentFormatting;
-		const static Capability textDocumentRangeFormatting;
-		const static Capability textDocumentOnTypeFormatting;
-		const static Capability textDocumentRename;
+		// const static Capability textDocumentDidOpen;
+		// const static Capability textDocumentDidChange;
+		// const static Capability textDocumentWillSave;
+		// const static Capability textDocumentWillSaveWaitUntil;
+		// const static Capability textDocumentDidSave;
+		// const static Capability textDocumentDidClose;
+		// const static Capability textDocumentPublishDiagnostics;
+		// const static Capability textDocumentCompletion;
+		// const static Capability completionItemResolve;
+		// const static Capability textDocumentHover;
+		// const static Capability textDocumentSignatureHelp;
+		// const static Capability textDocumentDeclaration;
+		// const static Capability textDocumentDefinition;
+		// const static Capability textDocumentTypeDefinition;
+		// const static Capability textDocumentImplementation;
+		// const static Capability textDocumentReferences;
+		// const static Capability textDocumentDocumentHighlight;
+		// const static Capability textDocumentDocumentSymbol;
+		// const static Capability textDocumentCodeAction;
+		// const static Capability textDocumentCodeLens;
+		// const static Capability codeLensResolve;
+		// const static Capability textDocumentDocumentLink;
+		// const static Capability documentLinkResolve;
+		// const static Capability textDocumentDocumentColor;
+		// const static Capability textDocumentColorPresentation;
+		// const static Capability textDocumentFormatting;
+		// const static Capability textDocumentRangeFormatting;
+		// const static Capability textDocumentOnTypeFormatting;
+		// const static Capability textDocumentRename;
 	};
 }

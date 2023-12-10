@@ -27,7 +27,7 @@ namespace wlsp
 		StringBuffer buffer;
 
 	public:
-		JsonWriter();
+		JsonWriter() : Writer<StringBuffer>(buffer) {}
 
 		/// Writes an ObjectT
 		bool Object(ObjectT &obj);

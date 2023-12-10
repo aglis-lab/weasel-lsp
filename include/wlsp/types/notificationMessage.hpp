@@ -1,10 +1,5 @@
 #pragma once
 
-#include <variant>
-#include <optional>
-
-#include <wlsp/server/server.hpp>
-
 #include <wlsp/types/message.hpp>
 
 namespace wlsp
@@ -19,28 +14,27 @@ namespace wlsp
 	///
 	/// params?: any
 	///
-	struct NotificationMessage : public MessageServer
+	struct NotificationMessage : public Message
 	{
+	public:
+		friend class Builder;
+
 	protected:
 		/// This is like write() but without the object bounds.
 		virtual void partialWrite(JsonWriter &writer);
 
 	private:
-		const static String methodKey;
-		const static String paramsKey;
+		static constexpr NativeString methodKey = "method";
+		static constexpr NativeString paramsKey = "params";
 
 	public:
 		/// The method to be invoked.
 		String method;
 
 		/// The notification's params.
-		optional<any> params;
+		unique_ptr<ObjectT> params;
 
-		NotificationMessage(Server &server,
-							String method,
-							optional<any> params);
-
-		NotificationMessage(Server &server);
+		NotificationMessage(String method, unique_ptr<ObjectT> params);
 
 		virtual ~NotificationMessage();
 	};

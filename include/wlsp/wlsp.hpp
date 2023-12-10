@@ -36,7 +36,7 @@ namespace wlsp
         void run();
 
     protected:
-        virtual std::optional<InitializeResult> onInitialize(std::optional<InitializeParams> &params)
+        virtual std::optional<InitializeResult> onInitialize(std::optional<InitializeParams> &)
         {
             NOT_IMPLEMENTED;
         }

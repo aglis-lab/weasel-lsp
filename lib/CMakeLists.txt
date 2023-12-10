@@ -16,3 +16,4 @@
 
 add_subdirectory(server)
 add_subdirectory(types)
+add_subdirectory(json)

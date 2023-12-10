@@ -3,8 +3,6 @@
 
 namespace wlsp
 {
-	JsonWriter::JsonWriter() : Writer<StringBuffer>(buffer){};
-
 	bool JsonWriter::Object(ObjectT &obj)
 	{
 		obj.write(*this);

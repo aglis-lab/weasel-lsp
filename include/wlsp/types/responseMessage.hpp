@@ -1,10 +1,10 @@
 #pragma once
 
-#include <any>
 #include <functional>
 #include <optional>
 #include <variant>
 
+#include <wlsp/constant.hpp>
 #include <wlsp/types/jsonTypes.hpp>
 #include <wlsp/types/message.hpp>
 
@@ -81,7 +81,7 @@ namespace wlsp
 	///
 	/// error?: ResponseError
 	///
-	struct ResponseMessage : public ObjectT
+	struct ResponseMessage : public Message
 	{
 	protected:
 		/// This is like write() but without the object bounds.
@@ -103,7 +103,7 @@ namespace wlsp
 		/// The error object in case a request fails.
 		optional<ResponseError> error;
 
-		ResponseMessage(optional<int> id, ObjectT *result, optional<ResponseError> error) : id(id), result(result), error(error) {}
+		ResponseMessage(optional<int> id, ObjectT *result, optional<ResponseError> error) : Message(JSON_RPC_VERSION), id(id), result(result), error(error) {}
 
 		virtual ~ResponseMessage();
 	};

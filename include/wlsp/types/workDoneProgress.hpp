@@ -4,7 +4,6 @@
 
 #include <wlsp/types/jsonTypes.hpp>
 #include <wlsp/types/objectT.hpp>
-#include <wlsp/types/genericObject.hpp>
 
 namespace wlsp
 {
@@ -284,21 +283,6 @@ namespace wlsp
 		const static String tokenKey;
 		const static String valueKey;
 
-		struct ValueMaker : public ObjectT
-		{
-			/// The object where value is
-			ProgressParams &parent;
-
-			/// A cache for the values recieved before kind:
-			GenericObject cache;
-
-			//===================================================================//
-
-			ValueMaker(ProgressParams &parent);
-
-			virtual ~ValueMaker();
-		};
-
 	public:
 		/// The progress token provided by the client or server.
 		ProgressToken token;
@@ -308,8 +292,6 @@ namespace wlsp
 				WorkDoneProgressReport,
 				WorkDoneProgressEnd>
 			value;
-
-		//=======================================================================//
 
 		ProgressParams(ProgressToken token,
 					   variant<WorkDoneProgressBegin,

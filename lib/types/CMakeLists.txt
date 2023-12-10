@@ -45,7 +45,6 @@ target_sources(${PROJECT_NAME}
 		executeCommand.cpp
 		fileResourceChanges.cpp
 		foldingRange.cpp
-		genericObject.cpp
 		hover.cpp
 		implementation.cpp
 		initialize.cpp
@@ -54,7 +53,6 @@ target_sources(${PROJECT_NAME}
 		locationLink.cpp
 		logMessage.cpp
 		markupContent.cpp
-		message.cpp
 		notificationMessage.cpp
 		objectT.cpp
 		partialResult.cpp

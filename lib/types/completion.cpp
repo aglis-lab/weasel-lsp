@@ -1,5 +1,4 @@
 #include <wlsp/types/completion.hpp>
-#include <wlsp/types/genericObject.hpp>
 
 namespace wlsp
 {

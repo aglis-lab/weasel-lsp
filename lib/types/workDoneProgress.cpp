@@ -191,10 +191,6 @@ namespace wlsp
 	ProgressParams::ProgressParams(){};
 	ProgressParams::~ProgressParams(){};
 
-	ProgressParams::ValueMaker::ValueMaker(ProgressParams &parent) : parent(parent){};
-
-	ProgressParams::ValueMaker::~ValueMaker(){};
-
 	void ProgressParams::partialWrite(JsonWriter &writer)
 	{
 		// token
