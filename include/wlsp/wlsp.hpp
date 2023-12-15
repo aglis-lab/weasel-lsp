@@ -90,11 +90,11 @@ void wlsp::IOServer::partialRun()
     // Get Content
     auto content = this->readMessage();
 
-    // Initialize Document
-    rapidjson::Document doc;
-
     PLOGD << "CONTENT";
     PLOGD << content;
+
+    // Initialize Document
+    rapidjson::Document doc;
     doc.Parse(content.c_str());
     assert(doc.IsObject());
 
